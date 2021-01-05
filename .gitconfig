@@ -1,0 +1,110 @@
+[user]
+  name = Stefan Stölzle
+  email = stoe@github.com
+
+[init]
+  defaultBranch = main
+
+# Enforce SSH
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+# [http]
+#   sslVerify = false
+
+[protocol]
+  version = 2
+
+[remote "origin"]
+  prune = true
+
+[gpg]
+  program = /usr/local/bin/gpg
+  # format = x509
+
+[gpg "x509"]
+  program = smimesign
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
+
+[color "branch"]
+  current = cyan reverse
+  local = yellow bold
+  remote = green bold
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = cyan bold
+
+[help]
+  autocorrect = 50
+
+[commit]
+  gpgsign = true
+
+[fetch]
+  prune = true
+
+[pull]
+  rebase = true
+
+[push]
+  # See `git help config` (search for push.default)
+  # for more information on different options of the below setting.
+  #
+  # Setting to git 2.0 default to surpress warning message
+  default = simple
+  gpgsign = if-asked
+
+[rebase]
+  autoStash = true
+
+[alias]
+  # View abbreviated SHA, description, and history graph
+  l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
+  lg = log --pretty=info --graph --all -n 10
+  # View the current working tree status using the short format w/ branch info
+  # upgrade your git if -sb breaks for you. it's fun.
+  s = status -sb
+  # Show verbose output about tags, branches or remotes
+  # tags = tag -l
+  tags = log --no-walk --tags --pretty=info --decorate=full
+  tag = tag -s
+  branches = branch -avv
+  remotes = remote -v
+  # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
+  up = pull --rebase --prune
+  co = checkout
+  cob = checkout -b
+  ec = config --global -e
+  # https://github.com/ahmadawais/Emoji-Log
+  new = "!f() { git commit -m \"📦 $@\"; }; f"
+  imp = "!f() { git commit -m \"🤘 $@\"; }; f"
+  fix = "!f() { git commit -m \"🐛 $@\"; }; f"
+  rlz = "!f() { git commit -m \"🚀 $1\" --allow-empty; git tag \"$1\" -m \"$2\" -s; }; f"
+  brk = "!f() { git commit -m \"‼ $@\"; }; f"
+  doc = "!f() { git commit -m \"📖 $@\"; }; f"
+  tst = "!f() { git commit -m \"🤖 $@\"; }; f"
+  dep = "!f() { git commit -m \"🆙 ${@:-Update dependencies}\"; }; f"
+  typo = "!f() { git commit -m \"🔡 ${@:-Fix typo}\"; }; f"
+  unhide = update-index --no-assume-unchanged
+
+[log]
+  showSignature = false
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
