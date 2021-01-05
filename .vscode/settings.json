@@ -57,7 +57,7 @@
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
   "workbench.startupEditor": "newUntitledFile",
 }
