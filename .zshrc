@@ -8,11 +8,15 @@ setopt HIST_IGNORE_SPACE       # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS       # Don't write duplicate entries in the history file.
 
 autoload -Uz colors && colors
+
+# initialize autocomplete here, otherwise functions won't be loaded
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 autoload -Uz compinit
 compinit
 
 if [[ $CODESPACES ]]; then
-  echo "hello from codespaces"
+  source $HOME/.zshrc.codespaces
 fi
-
-alias reload!='. ~/.zshrc'

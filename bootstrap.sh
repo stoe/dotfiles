@@ -3,4 +3,4 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-echo "bootstrap"
+test ! -d "${HOME}/.zgen" && git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
