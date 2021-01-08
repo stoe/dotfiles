@@ -36,32 +36,16 @@ alias reload!='source ~/.zshrc'
 # DOS style clear
 alias cls="clear"
 
-# -- Zgen ----------------------------------------------------------------------
+# -- Oh My Zsh -----------------------------------------------------------------
 
-source "${HOME}/.zgen/zgen.zsh"
+plugins=(
+  colored-man-pages
+  git
+  gitignore
+  golang
+  node
+  npm
+  nvm
+)
 
-# if the init scipt doesn't exist
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen oh-my-zsh
-
-    # plugins
-    zgen oh-my-zsh plugins/colored-man-pages
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/gitignore
-    zgen oh-my-zsh plugins/golang
-    zgen oh-my-zsh plugins/node
-    zgen oh-my-zsh plugins/npm
-
-    # zgen oh-my-zsh plugins/command-not-found
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
-    zgen load djui/alias-tips
-
-    # theme
-    zgen oh-my-zsh themes/af-magic
-
-    # save all to init script
-    zgen save
-fi
+ZSH_THEME="themes/af-magic"
