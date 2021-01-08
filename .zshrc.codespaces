@@ -10,7 +10,7 @@ alias ls="ls -GpF"
 alias g=git
 
 # Reload the shell
-alias reload!='. ~/.zshrc'
+alias reload!='source ~/.zshrc'
 
 # DOS style clear
 alias cls="clear"
@@ -39,13 +39,11 @@ if ! zgen saved; then
     zgen load djui/alias-tips
 
     # theme
-    # zgen oh-my-zsh themes/af-magic
+    zgen oh-my-zsh themes/af-magic
 
     # save all to init script
     zgen save
 fi
-
-test -f "$HOME/.zsh-theme" && source "$HOME/.zsh-theme"
 
 if test gh; then
   eval "$(gh completion -s zsh)"
