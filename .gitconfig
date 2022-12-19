@@ -11,13 +11,6 @@
 [remote "origin"]
   prune = true
 
-[gpg]
-  program = /usr/local/bin/gpg
-  # format = x509
-
-[gpg "x509"]
-  program = smimesign
-
 [color]
   diff = auto
   status = auto
@@ -42,9 +35,6 @@
 
 [help]
   autocorrect = 50
-
-[commit]
-  gpgsign = true
 
 [fetch]
   prune = true
