@@ -2,8 +2,8 @@
   "editor.acceptSuggestionOnEnter": "on",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": false,
-    "source.organizeImports": false
+    "source.fixAll": "never",
+    "source.organizeImports": "never"
   },
   "editor.cursorStyle": "block",
   "editor.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
