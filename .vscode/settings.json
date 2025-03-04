@@ -7,7 +7,7 @@
   },
   "editor.cursorStyle": "block",
   "editor.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
   "editor.fontSize": 16,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
@@ -34,7 +34,7 @@
     "️": true,
     "ℹ": true
   },
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
   "extensions.autoUpdate": "onlyEnabledExtensions",
@@ -55,14 +55,25 @@
     "editor.wordWrap": "off"
   },
   "github-actions.org-features": true,
+  "github.copilot.advanced": {
+    "authProvider": "github"
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions.md"
+    }
+  ],
+  "github.copilot.chat.edits.codesearch.enabled": true,
+  "github.copilot.chat.edits.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "yaml": true,
-    "plaintext": true,
+    "javascript": true,
     "markdown": true,
-    "javascript": true
+    "yaml": true
   },
+  "github.copilot.editor.enableAutoCompletions": true,
   "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pushBranch": "always",
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.toc.githubCompatibility": true,
@@ -88,18 +99,23 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "terminal.integrated.fontLigatures": true,
   "terminal.integrated.fontSize": 16,
   "termina.integrated.profiles.linux": {
     "bash": {
-      "args": [],
+      "path": "bash",
+      "args": [
+        "-l"
+      ],
       "color": "terminal.ansiGreen",
-      "path": "zsh",
     },
     "zsh": {
-      "args": [],
-      "color": "terminal.ansiBlue",
-      "icon": "terminal-bash",
       "path": "zsh",
+      "args": [
+        "-l"
+      ],
+      "icon": "terminal-bash",
+      "color": "terminal.ansiBlue"
     }
   },
   "terminal.integrated.tabs.enabled": true,
@@ -112,13 +128,15 @@
   "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
+  "workbench.editor.tabActionLocation": "left",
   "workbench.editor.tabCloseButton": "left",
   "workbench.editorAssociations": {},
   "workbench.enableExperiments": false,
   "workbench.experimental.settingsProfiles.enabled": true,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
+  "workbench.panel.defaultLocation": "right",
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.settings.enableNaturalLanguageSearch": false,
