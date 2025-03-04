@@ -10,6 +10,7 @@
 
 [remote "origin"]
   prune = true
+  pruneTags = true
 
 [color]
   diff = auto
@@ -32,16 +33,24 @@
   added = green bold
   changed = yellow bold
   untracked = cyan bold
-  
+
 [core]
+  autocrlf = input
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
   editor = code --wait
   pager = ""
+
+[apply]
+  whitespace = nowarn
 
 [help]
   autocorrect = 50
 
 [fetch]
   prune = true
+  pruneTags = true
 
 [pull]
   rebase = true
@@ -52,18 +61,21 @@
   #
   # Setting to git 2.0 default to surpress warning message
   default = simple
-  gpgsign = if-asked
+  autoSetupRemote = true
+  # gpgsign = if-asked
 
 [rebase]
   autoStash = true
 
 [pretty]
   changelog = * %h %s
-  info = %C(auto)%h %G? %d %s
+  # info = %C(auto)%h %G? %d %s
+  info = %C(auto)%h %d %s
 
 [alias]
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
+  lf = log --pretty=info --graph --first-parent HEAD -n 10
   lg = log --pretty=info --graph --all -n 10
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
@@ -77,20 +89,12 @@
   # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
   up = pull --rebase --prune
   co = checkout
-  cob = checkout -b
+  cob = switch -c
   ec = config --global -e
   # https://github.com/ahmadawais/Emoji-Log
   # https://gitmoji.dev/
-  new = "!f() { git commit -S -m \"🎉 ${@:-Init}\"; }; f"
-  gear = "!f() { git commit -S -m \"🔧 ${@:-Update config}\"; }; f"
-  # wip = "!f() { git commit -S -m \"🚧 Work in Progress\"; }; f"
   wip = stash -u -m "WIP"
-  fix = "!f() { git commit -S -m \"🐛 $@\"; }; f"
   rlz = "!f() { git commit -S -m \"🔖 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
-  brk = "!f() { git commit -S -m \"💥 $@\"; }; f"
-  doc = "!f() { git commit -S -m \"📝 $@\"; }; f"
-  dep = "!f() { git commit -S -m \"⬆️ ${@:-Update dependencies}\"; }; f"
-  typo = "!f() { git commit -S -m \"✏️ ${@:-Fix typo}\"; }; f"
   # https://stackoverflow.com/a/25387310
   hide = update-index --assume-unchanged
   unhide = update-index --no-assume-unchanged
