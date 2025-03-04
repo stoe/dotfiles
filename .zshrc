@@ -21,10 +21,6 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
-if type gh &>/dev/null; then
-  eval "$(gh completion -s zsh)"
-fi
-
 autoload -Uz compinit
 compinit
 
@@ -38,13 +34,18 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="af-magic"
 
 plugins=(
-  colored-man-pages
+  docker
   git
+  git-extras
+  git-lfs
   gitignore
   golang
   node
-  npm
   nvm
 )
+
+if type gh &>/dev/null; then
+  eval "$(gh completion -s zsh)"
+fi
 
 source $ZSH/oh-my-zsh.sh
