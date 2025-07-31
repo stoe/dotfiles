@@ -1,19 +1,9 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "cmd+b",
-    "command": "markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "tab",
-    "command": "markdown.extension.onTabKey",
-    "when": "editorTextFocus && !inlineSuggestionVisible && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+    "key": "ctrl+s",
+    "command": "markdown.extension.editing.toggleStrikethrough",
+    "when": "editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   },
   {
     "key": "tab",
@@ -50,5 +40,40 @@
   {
     "key": "shift+alt+t",
     "command": "workbench.action.terminal.newWithProfile"
+  },
+  {
+    "key": "ctrl+cmd+s",
+    "command": "editor.action.insertSnippet",
+    "when": "!editorReadonly"
+  },
+  {
+    "key": "cmd+b",
+    "command": "markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+alt+i",
+    "command": "markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "alt+cmd+i",
+    "command": "inlineChat.startWithCurrentLine",
+    "when": "inlineChatHasProvider && inlineChatShowingHint && !editorReadonly && !inlineChatVisible"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-inlineChat.startWithCurrentLine",
+    "when": "inlineChatHasProvider && inlineChatShowingHint && !editorReadonly && !inlineChatVisible"
   }
 ]
